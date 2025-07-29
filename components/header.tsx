@@ -130,13 +130,7 @@ const Header = ({ social }: HeaderProps) => {
 
 export default Header;
 
-function Button({
-    isActive,
-    toggleMenu,
-}: {
-    isActive: boolean;
-    toggleMenu: () => void;
-}) {
+function Button({ isActive, toggleMenu }: { isActive: boolean; toggleMenu: () => void; }) {
     return (
         <div className="absolute md:top-0 top-4 right-4 md:right-0 w-[100px] h-10 rounded-full overflow-hidden cursor-pointer">
             <motion.div
