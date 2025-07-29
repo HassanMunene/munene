@@ -10,6 +10,29 @@ import Link from "next/link";
 import { ArrowUpRight } from "./ui/Icons";
 import { Transition } from "./ui/Transitions";
 
+const navLinks = [
+    {
+        title: "Home",
+        href: "/",
+    },
+    {
+        title: "About",
+        href: "#about",
+    },
+    {
+        title: "Services",
+        href: "#services",
+    },
+    {
+        title: "Projects",
+        href: "#projects",
+    },
+    {
+        title: "Contact",
+        href: "#contact",
+    },
+];
+
 interface HeaderProps {
     social: SocialHandle[];
 }
@@ -158,29 +181,6 @@ function Button({ isActive, toggleMenu }: { isActive: boolean; toggleMenu: () =>
         </div>
     );
 }
-
-const navLinks = [
-    {
-        title: "Home",
-        href: "/",
-    },
-    {
-        title: "About",
-        href: "#about",
-    },
-    {
-        title: "Services",
-        href: "#services",
-    },
-    {
-        title: "Projects",
-        href: "#projects",
-    },
-    {
-        title: "Contact",
-        href: "#contact",
-    },
-];
 
 const perspective = {
     initial: {
