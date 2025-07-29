@@ -1,4 +1,6 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   :root {
@@ -39,24 +41,40 @@
     --ring: 240 4.9% 83.9%;
     --opacity-color: 203, 203, 219;
   }
-}
 
-html {
-  scroll-behavior: smooth;
-}
-
-@layer base {
   body {
-    @apply bg-background text-foreground overflow-x-hidden;
+    color: hsl(var(--foreground));
+    background-color: hsl(var(--background));
+    overflow-x: hidden;
   }
 
   *::-webkit-scrollbar-thumb {
-    @apply bg-secondary w-0.5 rounded-full;
+    background-color: hsl(var(--secondary));
+    @apply w-0.5 rounded-full;
   }
 
   *::-webkit-scrollbar {
     @apply w-0;
   }
+}
+
+/* Optional utility classes */
+@layer utilities {
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+
+  .bg-secondary {
+    background-color: hsl(var(--secondary));
+  }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .blob {

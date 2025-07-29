@@ -1,6 +1,6 @@
+import Header from "@/components/header";
 // import About from "@/components/about";
 // import Contact from "@/components/Contact";
-// import Header from "@/components/header";
 // import Hero from "@/components/hero";
 // import Projects from "@/components/projects";
 // import Services from "@/components/Services";
@@ -16,7 +16,7 @@ export default async function Home() {
 
   // const { about, testimonials, services, skills, projects, social_handles, timeline, email} = portfolio as Portfolio;
 
-  const { about } = portfolio as Portfolio;
+  const { about, social_handles } = portfolio as Portfolio;
 
   return (
     <main className="relative">
