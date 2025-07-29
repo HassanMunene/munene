@@ -4,11 +4,6 @@ import dynamic from "next/dynamic";
 import CustomCursor from "@/components/ui/CustomCursor";
 import { Hero } from "@/components/Hero";
 
-const NameRender = dynamic(() => import("@/components/NameRender"), {
-  ssr: false,
-  loading: () => <div className="w-full h-screen bg-black" />,
-});
-
 // Preload all the necessary assets
 const preloadAssets = () => {
   if (typeof window !== 'undefined') {
@@ -49,9 +44,6 @@ const Preloader = ({ setIsLoading }: PreloaderProps) => {
 
   return (
     <div className="relative overflow-hidden w-full h-screen">
-      <div className="z-52 animate-rise-up transform translate-y-0 transition-transform duration-3000 ease-out">
-        {counter > 50 && <NameRender />}
-      </div>
       <div className="fixed bottom-8 left-8 text-gray-300 font-mono z-51 flex items-center gap-2">
         <span className="text-7xl font-bold text-gray-400 tracking-tighter">
           {Math.floor(counter)}%
