@@ -11,14 +11,7 @@ import { cn } from "../../utils/cn";
 
 interface Props extends HTMLMotionProps<"span"> { }
 
-export const SlideIn = ({
-    className,
-    initial,
-    whileInView,
-    transition,
-    viewport,
-    ...rest
-}: Props) => {
+export const SlideIn = ({ className, initial, whileInView, transition, viewport, ...rest }: Props) => {
     const init = initial ? initial : { opacity: 0, y: "100%" };
     const inView = whileInView ? whileInView : { opacity: 1, y: 0 };
     const trans = transition ? transition : { duration: 0.5, delay: 0.3 };
@@ -40,17 +33,19 @@ export const Transition = ({
     initial,
     whileInView,
     transition,
+    viewport,
     ...rest
 }: TransitionProps) => {
-    const init = initial ? initial : { opacity: 0 };
-    const inView = whileInView ? whileInView : { opacity: 1 };
-    const trans = transition ? transition : { duration: 0.8, delay: 0.4 };
+    const init = initial ?? { opacity: 0, y: 20 }; // Better defaults
+    const inView = whileInView ?? { opacity: 1, y: 0 };
+    const trans = transition ?? { duration: 0.6, ease: "easeOut" }; // Smoother
 
     return (
         <motion.div
             initial={init}
             whileInView={inView}
             transition={trans}
+            viewport={viewport ?? { once: true, margin: "10%" }} // Ensure triggers
             {...rest}
         />
     );
@@ -58,7 +53,6 @@ export const Transition = ({
 
 export const OpacityTextReveal = (props: HTMLAttributes<HTMLSpanElement>) => {
     const textRef = useRef(null);
-
     useGSAP(
         () => {
             gsap.to(textRef.current, {

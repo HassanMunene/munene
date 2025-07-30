@@ -22,43 +22,40 @@
       }
     ]
   },
-
   "usageMetrics": {
     "visits": 0,
     "downloads": 0
   },
   "_id": "65b3a22c01d900e96c4219ae",
-  "username": "portfolio3",
-  "email": "work.tehseen@gmail.com",
+  "username": "HassanMunene",
+  "email": "awanzihassan6@gmail.com",
   "role": "admin",
   "timeline": [
     {
-      "company_name": "StartupX",
-      "summary": "Contributed to the development of a new social networking platform targeting niche communities.",
+      "company_name": "Moya Institute Of Technology",
+      "summary": "Led student development in frontend technologies through hands-on mentorship, curriculum design and project-based learning, preparing learners for industry-standard development practices.",
       "sequence": 6,
       "startDate": "2023-11-13T00:00:00.000Z",
       "endDate": "2024-03-13T00:00:00.000Z",
-      "jobTitle": "Backend Developer",
-      "jobLocation": " Los Angeles, CA",
+      "jobTitle": "Frontend Developer Tutor",
+      "jobLocation": "Nairobi, Kenya",
       "bulletPoints": [
-        "Developed scalable backend services using Python and Django framework.",
-        "\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.",
-        "\nDesigned and optimized database schemas for performance and scalability.",
-        "\nImplemented real-time messaging features using WebSockets and Redis.",
-        "\nWorked closely with frontend developers to design APIs and ensure smooth integration with the frontend."
+        "Mentored 10+ students in JavaScript fundamentals and algorithmic problem solving, providing code reviews, debugging support and personalized learning plans to improve their coding proficiency.",
+        "\nDesigned and led interactive coding workshops featuring hands-on JavaScript projects, fostering student engagement through real-world application and collaborative problem solving",
+        "\nEncouraged team-based coding projects to simulate real-world development environments, promoted collaboration, version control practices such as GIT and agile workflows among students."
       ],
       "forEducation": true,
       "enabled": true,
       "_id": "65f1fe900556c3f887e9db94"
     },
     {
-      "company_name": "CloudTech Innovations",
-      "summary": "Contributed to the development of a cloud-based SaaS platform for managing IT infrastructure.",
+      "company_name": "Lakewood Crystal Group",
+      "summary": "Built and deployed scalable backend services and APIs using modern cloud-native technologies, contributing to high-availability systems for enterprise applications.",
       "sequence": 4,
-      "startDate": "2024-03-06T00:00:00.000Z",
-      "endDate": "2024-03-20T00:00:00.000Z",
+      "startDate": "2024-04-06T00:00:00.000Z",
+      "endDate": "2024-12-20T00:00:00.000Z",
       "jobTitle": "Software Developer",
-      "jobLocation": "Austin, TX",
+      "jobLocation": "Nairobi, Kenya",
       "bulletPoints": [
         "Developed microservices using Node.js and deployed them using Docker containers.",
         "\nImplemented user authentication and authorization using OAuth 2.0 and JWT tokens.",
@@ -66,92 +63,28 @@
         "\nDesigned and implemented RESTful APIs for various platform features.",
         "\nCollaborated with DevOps engineers to automate deployment and testing processes."
       ],
-      "forEducation": false,
+      "forEducation": true,
       "enabled": true,
       "_id": "65f1fe4e0556c3f887e9db22"
     },
     {
-      "company_name": "Digital Solutions Co.",
+      "company_name": "Goymarey Software Solutions.",
       "summary": "Contributed to the development of a comprehensive CRM solution for enterprise clients.",
       "sequence": 3,
-      "startDate": "2023-10-11T00:00:00.000Z",
+      "startDate": "2025-02-11T00:00:00.000Z",
       "endDate": "2024-03-28T00:00:00.000Z",
       "jobTitle": "Frontend Developer",
       "jobLocation": "Seattle, WA",
       "bulletPoints": [
-        "Implemented user interface components using AngularJS and TypeScript.",
+        "Implemented user interface components using ReactJS and TypeScript.",
         "\nCollaborated with backend developers to integrate frontend components with RESTful APIs.",
         "\nDeveloped custom data visualizations and dashboards using D3.js and Chart.js.",
         "\nParticipated in sprint planning meetings and provided accurate estimates for feature development.",
-        "\nConducted A/B tests and analyzed user feedback to iterate on product features.",
         ""
       ],
-      "forEducation": false,
+      "forEducation": true,
       "enabled": true,
       "_id": "65f1fe1e0556c3f887e9dab2"
-    },
-    {
-      "company_name": "DataTech Solutions",
-      "summary": "Played a key role in developing a data analytics platform for a diverse range of clients.",
-      "sequence": 2,
-      "startDate": "2024-03-13T00:00:00.000Z",
-      "endDate": "2024-03-22T00:00:00.000Z",
-      "jobTitle": " Full Stack Developer",
-      "jobLocation": " New York, NY",
-      "bulletPoints": [
-        "Developed RESTful APIs and integrated third-party services to ingest and process large volumes of data.",
-        "\nDesigned and implemented responsive user interfaces using React.js and Bootstrap.",
-        "\nWorked closely with data scientists to integrate machine learning models into the platform.",
-        "\nOptimized database queries and improved overall system performance.",
-        "\nConducted unit tests and participated in peer code reviews to ensure code quality.\n"
-      ],
-      "forEducation": true,
-      "enabled": true,
-      "_id": "65f1fdef0556c3f887e9da44"
-    },
-    {
-      "company_name": "Tech Innovations Inc.",
-      "summary": "Contributed to the development of a cutting-edge mobile application aimed at revolutionizing the e-commerce industry.\n",
-      "sequence": 1,
-      "icon": {
-        "public_id": "portfolio3/1710357917833-0mic4.png",
-        "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/portfolio3/1710357917833-0mic4.png"
-      },
-      "startDate": "2024-01-03T00:00:00.000Z",
-      "endDate": "2024-03-08T00:00:00.000Z",
-      "jobTitle": "Software Engineer",
-      "jobLocation": "San Francisco, CA",
-      "bulletPoints": [
-        "Implemented core features and functionalities using React Native.",
-        "Collaborated closely with designers and product managers to iterate on user feedback.",
-        "Conducted code reviews and provided constructive feedback to team members.",
-        "Resolved complex technical challenges to ensure the smooth operation of the application.",
-        "Participated in daily stand-up meetings and sprint planning sessions."
-      ],
-      "forEducation": false,
-      "enabled": true,
-      "_id": "65f1fd9e0556c3f887e9d9d8"
-    },
-    {
-      "company_name": "ThePortfolyo",
-      "summary": "",
-      "sequence": 1,
-      "icon": {
-        "public_id": "1706289470834-siro83",
-        "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706289470834-siro83"
-      },
-      "startDate": "2023-12-13T00:00:00.000Z",
-      "endDate": "2024-01-25T00:00:00.000Z",
-      "jobTitle": "Software Developer",
-      "jobLocation": "Bangalore",
-      "bulletPoints": [
-        "Design and build full website",
-        " Optimized Site ",
-        " SEO implemented"
-      ],
-      "forEducation": true,
-      "enabled": true,
-      "_id": "65b3e93feb20546ae6d46369"
     }
   ],
   "skills": [
@@ -416,7 +349,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285511679-xe7r9t"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d9c8d017f6b49c778ca7",
       "enabled": true
     },
@@ -430,7 +368,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285468702-igx05q"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d99dd017f6b49c778c86",
       "enabled": true
     },
@@ -444,7 +387,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285431821-3lfg2r"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d978d017f6b49c778c67",
       "enabled": true
     },
@@ -458,7 +406,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285416017-wra7swm"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d969d017f6b49c778c4a",
       "enabled": true
     },
@@ -472,7 +425,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285405228-98liol"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d95dd017f6b49c778c2f",
       "enabled": true
     },
@@ -486,7 +444,9 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285393568-zl9mcc"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs "],
+      "techStack": [
+        "Reactjs "
+      ],
       "_id": "65b3d952d017f6b49c778c16",
       "enabled": true
     },
@@ -500,7 +460,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285378965-91vbk"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d943d017f6b49c778bff",
       "enabled": true
     },
@@ -514,7 +479,11 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285368529-zdr5fl"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs  ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs  ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d938d017f6b49c778bea",
       "enabled": true
     },
@@ -528,7 +497,10 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285357884-3ja6sw"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs   ", " CSS"],
+      "techStack": [
+        "Reactjs   ",
+        " CSS"
+      ],
       "_id": "65b3d92ed017f6b49c778bd7",
       "enabled": true
     },
@@ -542,7 +514,11 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285347449-dniw0h"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": [" Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d923d017f6b49c778bc6",
       "enabled": true
     },
@@ -556,7 +532,11 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706285323287-nt3ya3"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d8fed017f6b49c778ba9",
       "enabled": true
     },
@@ -570,7 +550,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706284852474-gh2ng"
       },
       "description": "lorem ipsumLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d734313a9b09a24a14a3",
       "enabled": true
     },
@@ -584,7 +569,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706284839761-ckccdj"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d728313a9b09a24a1498",
       "enabled": true
     },
@@ -598,7 +588,13 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706284824843-56iakg"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS ", " TailwindCSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS ",
+        " TailwindCSS"
+      ],
       "_id": "65b3d719313a9b09a24a148f",
       "enabled": true
     },
@@ -612,7 +608,12 @@
         "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1706284812399-jr7rqj"
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "techStack": ["Reactjs ", " Nextjs ", " Mern ", " CSS"],
+      "techStack": [
+        "Reactjs ",
+        " Nextjs ",
+        " Mern ",
+        " CSS"
+      ],
       "_id": "65b3d70d313a9b09a24a1488",
       "enabled": true
     }

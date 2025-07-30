@@ -21,7 +21,11 @@ const Hero = ({ about }: HeroProps) => {
             <LoaderWrapper>
                 <div className="relative h-full w-full">
                     <div className="flex items-center justify-center flex-col h-full pb-10">
-                        <Transition>
+                        <Transition
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "20px" }}
+                        >
                             <img
                                 src={about.avatar.url}
                                 alt={about.name}
