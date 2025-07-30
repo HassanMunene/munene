@@ -48,6 +48,7 @@ export interface Project {
     liveurl: string;
     githuburl: string;
     title: string;
+    miniTitle: string;
     sequence: number;
     image: Image;
     description: string;
