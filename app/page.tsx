@@ -1,7 +1,7 @@
 import Header from "@/components/header";
+import Hero from "@/components/hero";
 // import About from "@/components/about";
 // import Contact from "@/components/Contact";
-// import Hero from "@/components/hero";
 // import Projects from "@/components/projects";
 // import Services from "@/components/Services";
 // import Skills from "@/components/Skills";
@@ -21,8 +21,8 @@ export default async function Home() {
   return (
     <main className="relative">
       <Header social={social_handles} />
-      {/* <Hero about={about} />
-      <About about={about} timeline={timeline} /> */}
+      <Hero about={about} />
+      {/*<About about={about} timeline={timeline} /> */}
       {/* <Skills skills={skills} />
       <Projects projects={projects} />
       <Services services={services} />
