@@ -18,9 +18,14 @@ const Hero = ({ about }: HeroProps) => {
 
     return (
         <section className="h-dvh w-dvw overflow-hidden relative">
-            <Transition>
+            <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: true, margin: "10%" }}
+            >
                 <span className="blob size-1/2 absolute top-20 left-0 blur-[100px]" />
-            </Transition>
+            </motion.div>
             <LoaderWrapper onLoaded={() => setLoaded(true)}>
                 <div className="relative h-full w-full">
                     <div className="flex items-center justify-center flex-col h-full pb-8">
