@@ -2,11 +2,11 @@ import Header from "@/components/header";
 import Hero from "@/components/hero";
 import About from "@/components/about";
 import Projects from "@/components/projects";
+import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 // import Services from "@/components/Services";
 // import Skills from "@/components/Skills";
 // import Testimonials from "@/components/testimonials";
-// import Timeline from "@/components/Timeline";
 
 import { Portfolio } from "@/utils/interface";
 
@@ -24,9 +24,10 @@ export default async function Home() {
       <Hero about={about} />
       <About about={about} timeline={timeline} />
       <Projects projects={projects} />
+      <Timeline timeline={timeline} />
       {/* <Skills skills={skills} />
       <Services services={services} />
-      <Timeline timeline={timeline} />
+ 
       <Testimonials testimonials={testimonials} /> */}
       <Contact email={email} social_handle={social_handles} about={about} />
     </main>
