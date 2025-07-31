@@ -5,11 +5,13 @@ import { motion } from "motion/react";
 import { Transition } from "./ui/Transitions";
 import { OpacityTransition } from "./ui/Transitions";
 
+
 interface LoaderWrapperProps {
     children: React.ReactNode;
+    onLoaded?: () => void;
 }
 
-const LoaderWrapper: React.FC<LoaderWrapperProps> = ({ children }) => {
+const LoaderWrapper: React.FC<LoaderWrapperProps> = ({ children, onLoaded }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [counter, setCounter] = useState(0);
 
@@ -26,6 +28,7 @@ const LoaderWrapper: React.FC<LoaderWrapperProps> = ({ children }) => {
             clearInterval(count);
         };
     }, [counter]);
+
     return (
         <>
             {isLoading ? (
@@ -33,7 +36,10 @@ const LoaderWrapper: React.FC<LoaderWrapperProps> = ({ children }) => {
                     initial={{ y: 0 }}
                     animate={{ y: "-100%" }}
                     transition={{ delay: 2.5, duration: 1, type: "tween" }}
-                    onAnimationComplete={() => setIsLoading(false)}
+                    onAnimationComplete={() => {
+                        setIsLoading(false)
+                        onLoaded?.();
+                    }}
                     className="fixed top-0 left-0 z-[9999] w-full h-full bg-background"
                 >
                     <div className="p-4 md:p-10 flex flex-col md:justify-between max-md:gap-8 w-full h-full">

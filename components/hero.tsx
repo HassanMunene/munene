@@ -1,61 +1,85 @@
 "use client";
 
 import Link from "next/link";
-
+import { useState } from "react";
 import { About } from "@/utils/interface";
 import { SlideIn, Transition } from "./ui/Transitions";
 import { TextReveal } from "./ui/Typography";
 import { ArrowUpRight } from "./ui/Icons";
 import LoaderWrapper from "./LoaderWrapper";
+import { motion } from "framer-motion";
 
 interface HeroProps {
     about: About;
 }
 
 const Hero = ({ about }: HeroProps) => {
+    const [loaded, setLoaded] = useState(false);
+
     return (
         <section className="h-dvh w-dvw overflow-hidden relative">
             <Transition>
                 <span className="blob size-1/2 absolute top-20 left-0 blur-[100px]" />
             </Transition>
-            <LoaderWrapper>
+            <LoaderWrapper onLoaded={() => setLoaded(true)}>
                 <div className="relative h-full w-full">
-                    <div className="flex items-center justify-center flex-col h-full pb-10">
-                        <Transition
+                    <div className="flex items-center justify-center flex-col h-full pb-8">
+                        <motion.div
                             initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "20px" }}
+                            animate={loaded ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, ease: "easeOut" }}
                         >
                             <img
                                 src={about.avatar.url}
                                 alt={about.name}
                                 className="rounded-full size-28 object-cover"
                             />
-                        </Transition>
+                        </motion.div>
                         <div className="py-6 flex items-center flex-col text-center">
                             <h2 className="md:text-7xl text-4xl font-bold overflow-hidden">
-                                <SlideIn>Hello! I&apos;m {about.name}</SlideIn>
+                                <motion.span
+                                    initial={{ opacity: 0, y: "100%" }}
+                                    animate={loaded ? { opacity: 1, y: 0 } : {}}
+                                    transition={{ duration: 0.5, delay: 0.3 }}
+                                    className="inline-block overflow-hidden"
+                                >
+                                    Hello! I&apos;m {about.name}
+                                </motion.span>
                             </h2>
                             <h1 className="md:text-7xl text-3xl overflow-hidden">
-                                <SlideIn>{about.title}</SlideIn>
+                                <motion.span
+                                    initial={{ opacity: 0, y: "100%" }}
+                                    animate={loaded ? { opacity: 1, y: 0 } : {}}
+                                    transition={{ duration: 0.5, delay: 0.4 }}
+                                    className="inline-block overflow-hidden"
+                                >
+                                    {about.title}
+                                </motion.span>
                             </h1>
                         </div>
-                        <Transition viewport={{ once: true }} className="w-full">
-                            <p className="opacity-70 md:text-xl py-4 w-10/12 md:w-2/3 mx-auto flex flex-wrap justify-center gap-2">
-                                {about.subTitle.split(" ").map((word, index) => (
-                                    <span key={index}>{word}</span>
-                                ))}
-                            </p>
-                        </Transition>
-                        <Transition viewport={{ once: true }}>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={loaded ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, delay: 0.5 }}
+                            className="opacity-70 md:text-xl py-4 w-10/12 md:w-2/3 mx-auto flex flex-wrap justify-center gap-2"
+                        >
+                            {about.subTitle.split(" ").map((word, index) => (
+                                <span key={index}>{word}</span>
+                            ))}
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={loaded ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.6, delay: 0.6 }}
+                        >
                             <Link
                                 href={"#contact"}
                                 className="px-5 py-3 mt-4 rounded-full border border-white/50 flex items-center gap-2 group"
                             >
-                                <TextReveal>Let&apos;s talk</TextReveal>
+                                <TextReveal>Let's talk</TextReveal>
                                 <ArrowUpRight />
                             </Link>
-                        </Transition>
+                        </motion.div>
                     </div>
                 </div>
             </LoaderWrapper>
