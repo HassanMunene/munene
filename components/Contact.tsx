@@ -95,7 +95,7 @@ const Contact = ({ email, social_handle, about }: ContactProps) => {
                 )}
             </AnimatePresence>
             <span className="blob size-1/2 absolute top-20 right-0 blur-[100px] -z-10" />
-            <div className="p-4 md:p-8 md:px-16">
+            <div className="px-4 md:p-8 md:px-16">
                 <SectionHeading className="">
                     <SlideIn className="text-white/40">Interested in talking,</SlideIn>{" "}
                     <br /> <SlideIn>let’s do it.</SlideIn>
@@ -203,7 +203,7 @@ const Contact = ({ email, social_handle, about }: ContactProps) => {
                     </div>
                 </div>
             </div>
-            <footer className="flex items-center justify-between md:px-8 px-2 py-4 text-sm">
+            <footer className="flex items-center justify-between md:px-8 px-6 py-4 text-sm">
                 <Transition>
                     <div>&copy; {new Date().getFullYear()} Munene</div>
                 </Transition>

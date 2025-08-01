@@ -397,6 +397,16 @@
       },
       "enabled": true,
       "_id": "65b3e99beb20546ae6d463c2"
+    },
+    {
+      "platform": "Github",
+      "url": "https://github.com/HassanMunene",
+      "image": {
+        "public_id": "1708718263294-2lfj67.webp",
+        "url": "https://portfolio-image-store.s3.ap-south-1.amazonaws.com/1708718263294-2lfj67.webp"
+      },
+      "enabled": true,
+      "_id": "github-link-to-hassan"
     }
   ],
   "createdAt": "2024-01-26T12:14:36.514Z",

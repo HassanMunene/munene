@@ -1,28 +1,67 @@
 "use client";
 
-import { Dispatch, SetStateAction, useState } from "react";
-import { motion } from "motion/react";
-
 import { About as IAbout, Timeline } from "../utils/interface";
 import { OpacityTextReveal, SlideIn, Transition } from "./ui/Transitions";
-import { formatDate } from "@/utils/formatDate";
-import { div } from "motion/react-client";
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 
 interface AboutProps {
     about: IAbout;
     timeline: Timeline[];
 }
 
-const About = ({ about, timeline }: AboutProps) => {
-    const [activeIndex, setActiveIndex] = useState(0);
+interface Contribution {
+    date: string;
+    count: number;
+    level: number;
+}
 
-    const education = timeline
-        .filter((line) => line.forEducation && line.enabled === true)
-        .sort((a, b) => a.sequence - b.sequence);
+const About = ({ about, timeline }: AboutProps) => {
+    const [contributions, setContributions] = useState<Contribution[]>([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
+    const [selectedDay, setSelectedDay] = useState<Contribution | null>(null);
+
+    useEffect(() => {
+        const fetchGitHubContributions = async () => {
+            try {
+                const username = "HassanMunene";
+                const response = await fetch(
+                    `https://github-contributions-api.jogruber.de/v4/${username}?y=last`
+                );
+
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+
+                const data = await response.json();
+                setContributions(data.contributions || []);
+            } catch (error) {
+                console.error("Error fetching GitHub contributions:", error);
+                setError("Failed to load GitHub activity");
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchGitHubContributions();
+    }, []);
+
+    const getColorForContributions = (count: number) => {
+        if (count === 0) return "from-gray-800 to-gray-700";
+        if (count < 3) return "from-green-600 to-green-500";
+        if (count < 5) return "from-green-500 to-green-400";
+        if (count < 7) return "from-green-400 to-green-300";
+        return "from-green-300 to-green-200";
+    };
+
+    // Group contributions by week (7 days)
+    const weeks = [];
+    for (let i = 0; i < contributions.length; i += 7) {
+        weeks.push(contributions.slice(i, i + 7));
+    }
 
     return (
         <div className="mx-auto max-w-2xl lg:max-w-7xl px-6 md:px-8">
-            <section className="grid md:grid-cols-[1.8fr_1fr] gap-x-10 py-20 relative" id="about">
+            <section className="py-20 relative" id="about">
                 <div>
                     <h3 className="md:text-5xl text-2xl font-bold overflow-hidden uppercase pb-8">
                         <SlideIn>
@@ -35,33 +74,74 @@ const About = ({ about, timeline }: AboutProps) => {
                     >
                         <OpacityTextReveal>{about.description}</OpacityTextReveal>
                     </Transition>
-                    <div className="pt-10">
-                        <div className="py-10 overflow-hidden grid w-full">
-                            {education.map((edu, index) => (
-                                <Transition key={edu._id}>
-                                    <TimelineCard
-                                        index={index}
-                                        activeIndex={activeIndex}
-                                        setActiveIndex={setActiveIndex}
-                                        timeline={edu}
-                                    />
-                                </Transition>
-                            ))}
+
+                    {/* GitHub Contributions Section */}
+                    <Transition viewport={{ once: true }} className="mt-16">
+                        <div className="flex items-center justify-between mb-6">
+                            <h4 className="text-2xl font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
+                                My Coding Journey
+                            </h4>
+                            {selectedDay && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="text-sm bg-white/5 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10"
+                                >
+                                    {selectedDay.count} contributions on {new Date(selectedDay.date).toLocaleDateString()}
+                                </motion.div>
+                            )}
                         </div>
-                    </div>
-                </div>
-                <div className="relative">
-                    <div className="sticky top-6">
-                        <Transition>
-                            <img
-                                src={about.avatar.url}
-                                width={400}
-                                height={400}
-                                alt={about.name}
-                                className="rounded-xl max-md:aspect-square object-cover"
-                            />
-                        </Transition>
-                    </div>
+
+                        {error ? (
+                            <div className="text-red-400">{error}</div>
+                        ) : loading ? (
+                            <div className="animate-pulse h-40 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl"></div>
+                        ) : (
+                            <div className="space-y-4">
+                                <div className="overflow-x-auto pb-4">
+                                    <div className="inline-flex gap-2">
+                                        {weeks.map((week, weekIndex) => (
+                                            <div key={weekIndex} className="flex flex-col gap-1">
+                                                {week.map((day, dayIndex) => (
+                                                    <div
+                                                        key={`${weekIndex}-${dayIndex}`}
+                                                        className={`w-4 h-4 rounded-sm bg-gradient-to-br ${getColorForContributions(day.count)} transition-all duration-200 cursor-pointer`}
+                                                        title={`${day.count} contributions on ${day.date}`}
+                                                    />
+                                                ))}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="flex flex-col md:flex-row items-center justify-between px-2">
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs text-gray-400">Less</span>
+                                        <div className="flex gap-1">
+                                            {[0, 3, 5, 7].map((level) => (
+                                                <div
+                                                    key={level}
+                                                    className={`w-3 h-3 rounded-sm bg-gradient-to-br ${getColorForContributions(level)}`}
+                                                />
+                                            ))}
+                                        </div>
+                                        <span className="text-xs text-gray-400">More</span>
+                                    </div>
+
+                                    <div className="text-sm text-gray-400">
+                                        <span className="font-medium text-white">{contributions.reduce((sum, day) => sum + day.count, 0)}</span> contributions in the last year
+                                    </div>
+                                </div>
+
+                                {/* Animated month labels */}
+                                <div className="flex justify-between text-xs text-gray-400 px-2">
+                                    {['Jan', 'Mar', 'May', 'Jul', 'Sep', 'Nov'].map((month) => (
+                                        <span key={month}>{month}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </Transition>
                 </div>
             </section>
         </div>
@@ -69,78 +149,3 @@ const About = ({ about, timeline }: AboutProps) => {
 };
 
 export default About;
-
-interface TimelineCardProps {
-    timeline: Timeline;
-    activeIndex: number;
-    setActiveIndex: Dispatch<SetStateAction<number>>;
-    index: number;
-}
-
-const TimelineCard = ({
-    timeline,
-    activeIndex,
-    setActiveIndex,
-    index,
-}: TimelineCardProps) => (
-    <section id="about" className="border-b border-primary/20 py-4">
-        <div
-            className="flex items-center justify-between gap-4 cursor-pointer select-none"
-            onClick={() => setActiveIndex(index)}
-        >
-            <span>0{index + 1}</span>
-            <span className="text-xl md:text-3xl font-bold flex-1">
-                {timeline.jobTitle}
-            </span>
-            <div className="relative size-6 flex items-center justify-center">
-                <span className="bg-primary w-4 md:w-6 h-0.5 absolute" />
-                <motion.span
-                    initial={{ rotate: 90 }}
-                    animate={{
-                        rotate: activeIndex === index ? 0 : 90,
-                    }}
-                    className="absolute bg-primary w-4 md:w-6 h-0.5 rotate-90"
-                />
-            </div>
-        </div>
-        <motion.div
-            initial={{
-                height: activeIndex === index ? "100%" : 0,
-            }}
-            animate={{
-                height: activeIndex === index ? "100%" : 0,
-            }}
-            className="overflow-hidden"
-        >
-            <p className="text-foreground/60 py-4 max-md:text-sm">
-                {timeline.summary}
-            </p>
-            <div className="flex justify-between items-center pb-3 text-foreground/80">
-                <div className="max-md:text-sm">
-                    <span>{timeline.company_name}</span>
-                    <span>{timeline.jobLocation}</span>
-                </div>
-                <div className="max-md:text-xs">
-                    <span className="italic">
-                        {formatDate(timeline.startDate).month +
-                            ", " +
-                            formatDate(timeline.startDate).year}
-                    </span>
-                    {" - "}
-                    <span className="italic">
-                        {formatDate(timeline.endDate).month +
-                            ", " +
-                            formatDate(timeline.endDate).year}
-                    </span>
-                </div>
-            </div>
-            <ul className="list-disc list-inside">
-                {timeline.bulletPoints.map((point, index) => (
-                    <li key={index} className="text-foreground/80 max-md:text-sm">
-                        {point}
-                    </li>
-                ))}
-            </ul>
-        </motion.div>
-    </section>
-);

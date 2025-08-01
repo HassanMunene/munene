@@ -21,7 +21,7 @@ const Timeline = ({ timeline }: ExperienceProps) => {
     return (
         <div className="relative pb-20">
             <span className="blob absolute top-[20%] left-0 w-1/3 h-5/6 blur-[100px] -z-10" />
-            <SectionHeading className="pl-4 md:px-12 py-20">
+            <SectionHeading className="pl-6 md:px-12 py-20">
                 <SlideIn className="text-white/40">Experience</SlideIn>
                 <br />
                 <SlideIn>History</SlideIn>
@@ -30,7 +30,7 @@ const Timeline = ({ timeline }: ExperienceProps) => {
                 {experience.map((exp, index) => (
                     <Transition
                         key={exp._id}
-                        className="py-4 md:py-8 border-b border-white/10 hover:bg-white/5 px-2 md:px-12"
+                        className="py-4 md:py-8 border-b border-white/10 hover:bg-white/5 px-6 md:px-8<"
                         onMouseEnter={() => setHover(index)}
                         onMouseLeave={() => setHover(null)}
                     >
