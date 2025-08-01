@@ -54,10 +54,14 @@ const Contact = ({ email, social_handle, about }: ContactProps) => {
                 });
                 setStatusText("Message sent successfully!");
             }, 3000);
-        } catch (error: any) {
+        } catch (error) {
             setStatus("ERROR");
-            setStatusText("Error in sending message: " + error.message);
-            console.error("Error sending message:", error.message);
+            const errorMessage =
+                error && typeof error === "object" && "message" in error
+                    ? (error as { message: string }).message
+                    : String(error);
+            setStatusText("Error in sending message: " + errorMessage);
+            console.error("Error sending message:", errorMessage);
         }
     };
 
@@ -211,7 +215,7 @@ const Contact = ({ email, social_handle, about }: ContactProps) => {
                     <p>
                         developed by @
                         <Link
-                            href={"https://twitter.com/tehseen_type"}
+                            href={"https://x.com/Awanzii"}
                             className="hover:underline"
                         >
                             munene
