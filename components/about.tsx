@@ -3,7 +3,6 @@
 import { About as IAbout, Timeline } from "../utils/interface";
 import { OpacityTextReveal, SlideIn, Transition } from "./ui/Transitions";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
 
 interface AboutProps {
     about: IAbout;
@@ -16,11 +15,10 @@ interface Contribution {
     level: number;
 }
 
-const About = ({ about, timeline }: AboutProps) => {
+const About = ({ about }: AboutProps) => {
     const [contributions, setContributions] = useState<Contribution[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
-    const [selectedDay, setSelectedDay] = useState<Contribution | null>(null);
 
     useEffect(() => {
         const fetchGitHubContributions = async () => {
@@ -81,15 +79,6 @@ const About = ({ about, timeline }: AboutProps) => {
                             <h4 className="text-2xl font-semibold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
                                 My Coding Journey
                             </h4>
-                            {selectedDay && (
-                                <motion.div
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    className="text-sm bg-white/5 backdrop-blur-sm px-3 py-1 rounded-full border border-white/10"
-                                >
-                                    {selectedDay.count} contributions on {new Date(selectedDay.date).toLocaleDateString()}
-                                </motion.div>
-                            )}
                         </div>
 
                         {error ? (
