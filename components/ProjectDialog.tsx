@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Dispatch, SetStateAction } from "react";
 import { motion } from "motion/react";
+import Image from "next/image";
 
 import { Project } from "../utils/interface";
 import { ExternalLink, Github, XMark } from "./ui/Icons";
@@ -27,7 +28,7 @@ const ProjectDialog = ({ selectedProject, setSelectedProject }: DialogProps) => 
                     >
                         <XMark />
                     </button>
-                    <img
+                    <Image
                         src={selectedProject.image.url}
                         width={300}
                         height={300}

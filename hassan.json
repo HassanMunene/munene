@@ -335,7 +335,7 @@
       "miniTitle": "E-commerce",
       "image": {
         "public_id": "trendyCollections-01",
-        "url": "https://github.com/user-attachments/assets/f22843ea-95b9-4020-9fb2-f9891e136f65"
+        "url": "/trendyCollectionsHero.png"
       },
       "description": "A sleek, performant online marketplace for premium home textiles (curtains, pillows and decor) built with React, and modern web tech.",
       "techStack": [
@@ -354,7 +354,7 @@
       "miniTitle": "Social Media",
       "image": {
         "public_id": "goyfeedSocialMedia-01",
-        "url": "https://github.com/user-attachments/assets/d5ce6aa1-22ff-4cac-8364-efa749563b36"
+        "url": "/goyfeedHero.png"
       },
       "description": "GoyFeed is a modern social media platform built with a React frontend, an Express GraphQL backend, and a PostgreSQL database. The app allows users to post content, like and comment on posts. ",
       "techStack": [
@@ -374,7 +374,7 @@
       "miniTitle": "AI Agent",
       "image": {
         "public_id": "mheshimiwaWatch-01",
-        "url": "https://github.com/user-attachments/assets/d7217a9b-a1d4-4b78-b7bf-c1a92bbac715"
+        "url": "/mheshimiwaHero.png"
       },
       "description": "Kenya’s political landscape suffers from broken promises and limited transparency. This tool will empower us as citizens to enhance transparency and civic engagement in our beloved country",
       "techStack": [
