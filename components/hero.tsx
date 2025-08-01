@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { useState } from "react";
 import { About } from "@/utils/interface";
-import { SlideIn, Transition } from "./ui/Transitions";
 import { TextReveal } from "./ui/Typography";
 import { ArrowUpRight } from "./ui/Icons";
 import LoaderWrapper from "./LoaderWrapper";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 interface HeroProps {
     about: About;
@@ -34,12 +34,16 @@ const Hero = ({ about }: HeroProps) => {
                             animate={loaded ? { opacity: 1, y: 0 } : {}}
                             transition={{ duration: 0.6, ease: "easeOut" }}
                         >
-                            <img
-                                src={about.avatar.url}
-                                alt={about.name}
-                                className="rounded-full size-28 object-cover"
-                            />
+                            <div className="relative w-28 h-28 rounded-full overflow-hidden">
+                                <Image
+                                    src={about.avatar.url}
+                                    alt={about.name}
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
                         </motion.div>
+
                         <div className="py-6 flex items-center flex-col text-center">
                             <h2 className="md:text-7xl text-4xl font-bold overflow-hidden">
                                 <motion.span
