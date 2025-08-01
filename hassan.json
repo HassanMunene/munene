@@ -335,7 +335,7 @@
       "miniTitle": "E-commerce",
       "image": {
         "public_id": "trendyCollections-01",
-        "url": "/trendyCollectionsHero.png"
+        "url": "/trendyCollectionsHero.webp"
       },
       "description": "A sleek, performant online marketplace for premium home textiles (curtains, pillows and decor) built with React, and modern web tech.",
       "techStack": [
@@ -354,7 +354,7 @@
       "miniTitle": "Social Media",
       "image": {
         "public_id": "goyfeedSocialMedia-01",
-        "url": "/goyfeedHero.png"
+        "url": "/goyfeedHero.webp"
       },
       "description": "GoyFeed is a modern social media platform built with a React frontend, an Express GraphQL backend, and a PostgreSQL database. The app allows users to post content, like and comment on posts. ",
       "techStack": [
@@ -374,7 +374,7 @@
       "miniTitle": "AI Agent",
       "image": {
         "public_id": "mheshimiwaWatch-01",
-        "url": "/mheshimiwaHero.png"
+        "url": "/mheshimiwaHero.webp"
       },
       "description": "Kenya’s political landscape suffers from broken promises and limited transparency. This tool will empower us as citizens to enhance transparency and civic engagement in our beloved country",
       "techStack": [

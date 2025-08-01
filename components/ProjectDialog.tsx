@@ -28,7 +28,7 @@ const ProjectDialog = ({ selectedProject, setSelectedProject }: DialogProps) => 
                     >
                         <XMark />
                     </button>
-                    <Image
+                    <img
                         src={selectedProject.image.url}
                         width={300}
                         height={300}

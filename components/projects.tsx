@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 import { SectionHeading, TextReveal } from "./ui/Typography";
 import { Project } from "../utils/interface";

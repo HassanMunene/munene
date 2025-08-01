@@ -33,7 +33,6 @@ const Filters = ({ projects, filterValue, setFilterValue }: FilterProps) => {
                     {filterValue === "all" && (
                         <motion.span
                             transition={{ type: "spring", bounce: 0.3 }}
-                            exit={{ type: "spring" }}
                             layoutId="active-filter"
                             className="absolute top-0 left-0 w-full h-full bg-primary -z-10 rounded-full"
                         />
@@ -56,7 +55,6 @@ const Filters = ({ projects, filterValue, setFilterValue }: FilterProps) => {
                         {filterValue === filter && (
                             <motion.span
                                 transition={{ type: "spring", bounce: 0.3 }}
-                                exit={{ type: "spring" }}
                                 layoutId="active-filter"
                                 className="absolute top-0 left-0 w-full h-full bg-primary -z-10 rounded-full"
                             />

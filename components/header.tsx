@@ -1,8 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
-
+import { motion, Variants, Easing } from "framer-motion";
 import { SocialHandle } from "@/utils/interface";
 import { TextReveal } from "./ui/Typography";
 import { useMediaQuery } from "@/utils/useMediaQuery";
@@ -29,38 +28,90 @@ const navLinks = [
     },
 ];
 
+const perspective: Variants = {
+    initial: {
+        y: 50,
+        opacity: 0,
+    },
+    enter: (i: number) => ({
+        y: 0,
+        opacity: 1,
+        transition: {
+            duration: 0.65,
+            delay: 0.5 + i * 0.1,
+            ease: [0.215, 0.61, 0.355, 1] as const,
+        },
+    }),
+    exit: {
+        opacity: 0,
+        transition: {
+            duration: 0.5,
+            ease: "easeInOut" as Easing
+        },
+    },
+    whileHover: {
+        scale: 1.02,
+    },
+};
+
+const slideIn = {
+    initial: {
+        opacity: 0,
+        y: 20,
+    },
+    enter: (i: number) => ({
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+            delay: 0.75 + i * 0.1,
+            ease: [0.215, 0.61, 0.355, 1] as const,
+        },
+    }),
+    exit: {
+        opacity: 0,
+        transition: { duration: 0.5, ease: "easeInOut" as Easing },
+    },
+};
+
 interface HeaderProps {
     social: SocialHandle[];
 }
+
 const Header = ({ social }: HeaderProps) => {
     const [isActive, setIsActive] = useState(false);
     const isMobile = useMediaQuery("(max-width:768px)");
 
-    const MotionLink = motion.create(Link);
+    const MotionLink = motion(Link);
 
-    const variants = {
+    const variants: Variants = {
         open: {
-            clipPath: `inset(0% 0% 0% 0% round ${isMobile ? 0 : "24px"})`,
-            transition: { duration: 0.75, type: "tween", ease: [0.76, 0, 0.24, 1] },
+            clipPath: isMobile ? "circle(150% at 100% 0%)" : "inset(0% 0% 0% 0% round 24px)",
+            transition: {
+                type: "tween",
+                duration: 0.75,
+                ease: [0.76, 0, 0.24, 1] as const
+            },
         },
         closed: {
-            clipPath: `inset(5% 12% 93% 85% round ${isMobile ? 0 : "24px"})`,
+            clipPath: isMobile ? "circle(0% at 100% 0%)" : "inset(5% 12% 93% 85% round 24px)",
             transition: {
+                type: "tween",
                 duration: 0.75,
                 delay: 0.35,
-                type: "tween",
-                ease: [0.76, 0, 0.24, 1],
+                ease: [0.76, 0, 0.24, 1] as const
             },
         },
     };
 
     return (
         <motion.header className="fixed top-0 md:mt-12 md:mr-12 right-0 z-20">
-            <Transition className="fixed md:top-8 top-6 md:left-8 left-6 z-30 ">
+            <Transition className="fixed md:top-8 top-6 md:left-8 left-6 z-30">
                 <Link href={"/"}>
                     <TextReveal className="font-semibold">Munene</TextReveal>
                 </Link>
             </Transition>
+
             <motion.div
                 initial={false}
                 animate={isActive ? "open" : "closed"}
@@ -75,13 +126,9 @@ const Header = ({ social }: HeaderProps) => {
                                 return (
                                     <div
                                         key={`b_${i}`}
-                                        className=""
                                         onClick={() => setIsActive(false)}
                                     >
-                                        <Link
-                                            href={href}
-                                            className="flex flex-wrap overflow-hidden"
-                                        >
+                                        <Link href={href} className="flex flex-wrap overflow-hidden">
                                             <motion.div
                                                 variants={perspective}
                                                 custom={i}
@@ -114,6 +161,7 @@ const Header = ({ social }: HeaderProps) => {
                                 );
                             })}
                         </div>
+
                         <motion.div className="flex flex-wrap">
                             {social.map((link, i) => {
                                 const { platform, _id, url } = link;
@@ -121,7 +169,7 @@ const Header = ({ social }: HeaderProps) => {
                                     <MotionLink
                                         href={url}
                                         target="_blank"
-                                        className=" w-1/2 mt-1 text-background"
+                                        className="w-1/2 mt-1 text-background"
                                         variants={slideIn}
                                         custom={i}
                                         initial="initial"
@@ -137,6 +185,7 @@ const Header = ({ social }: HeaderProps) => {
                     </nav>
                 )}
             </motion.div>
+
             <Button
                 isActive={isActive}
                 toggleMenu={() => {
@@ -147,72 +196,35 @@ const Header = ({ social }: HeaderProps) => {
     );
 };
 
-export default Header;
-
-function Button({ isActive, toggleMenu }: { isActive: boolean; toggleMenu: () => void; }) {
+const Button = ({
+    isActive,
+    toggleMenu
+}: {
+    isActive: boolean;
+    toggleMenu: () => void;
+}) => {
     return (
         <div className="absolute md:top-0 top-4 right-4 md:right-0 w-[100px] h-10 rounded-full overflow-hidden cursor-pointer">
             <motion.div
                 className="relative w-full h-full"
                 animate={{ top: isActive ? "-100%" : "0%" }}
-                transition={{ duration: 0.5, type: "tween", ease: [0.76, 0, 0.24, 1] }}
+                transition={{ duration: 0.5, ease: [0.76, 0, 0.24, 1] }}
             >
                 <motion.div
                     className="bg-primary h-full w-full grid place-items-center text-black"
-                    onClick={() => {
-                        toggleMenu();
-                    }}
+                    onClick={toggleMenu}
                 >
                     <TextReveal>Menu</TextReveal>
                 </motion.div>
                 <motion.div
                     className="bg-black h-full w-full grid place-items-center"
-                    onClick={() => {
-                        toggleMenu();
-                    }}
+                    onClick={toggleMenu}
                 >
                     <TextReveal>Close</TextReveal>
                 </motion.div>
             </motion.div>
         </div>
     );
-}
-
-const perspective = {
-    initial: {
-        y: 50,
-    },
-    enter: (i: number) => ({
-        y: 0,
-        transition: {
-            duration: 0.65,
-            delay: 0.5 + i * 0.1,
-            ease: [0.215, 0.61, 0.355, 1],
-            opacity: { duration: 0.35 },
-        },
-    }),
-    exit: {
-        opacity: 0,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-    },
 };
 
-const slideIn = {
-    initial: {
-        opacity: 0,
-        y: 20,
-    },
-    enter: (i: number) => ({
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.5,
-            delay: 0.75 + i * 0.1,
-            ease: [0.215, 0.61, 0.355, 1],
-        },
-    }),
-    exit: {
-        opacity: 0,
-        transition: { duration: 0.5, type: "tween", ease: "easeInOut" },
-    },
-};
+export default Header;
