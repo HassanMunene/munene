@@ -1,5 +1,5 @@
-https://github.com/user-attachments/assets/097f99c4-992b-473c-8b4d-354ccecda8b1
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![Munene Lansing page](https://github.com/user-attachments/assets/097f99c4-992b-473c-8b4d-354ccecda8b1)
+
 
 ## Getting Started
 
