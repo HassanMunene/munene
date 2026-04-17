@@ -1,5 +1,5 @@
 import { MapPin, Mail } from "lucide-react";
-import avatar from "@/assets/avatar.jpg";
+import avatar from "@/assets/avatar.jpeg";
 
 const links = [
   { label: "Twitter/X", href: "https://twitter.com" },
@@ -62,7 +62,7 @@ export function ProfileHeader() {
         <div className="rounded-full p-1 ring-2 ring-accent-green">
           <img
             src={avatar}
-            alt="Alex Carter portrait"
+            alt="Hassan Munene Potrait"
             className="h-24 w-24 rounded-full object-cover sm:h-28 sm:w-28"
           />
         </div>
